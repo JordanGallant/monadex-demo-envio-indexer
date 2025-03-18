@@ -1,0 +1,142 @@
+type MonadexFactory_PoolCreated {
+  id: ID!
+  pool: String!
+  tokenA: String!
+  tokenB: String!
+}
+
+type Pair_AmountSwapped {
+  id: ID!
+  caller: String!
+  amountAIn: BigInt!
+  amountBIn: BigInt!
+  amountAOut: BigInt!
+  amountBOut: BigInt!
+  _receiver: String!
+}
+
+type Pair_Approval {
+  id: ID!
+  owner: String!
+  spender: String!
+  amount: BigInt!
+}
+
+type Pair_Initialised {
+  id: ID!
+  tokenA: String!
+  tokenB: String!
+}
+
+type Pair_LiquidityAdded {
+  id: ID!
+  by: String!
+  receiver: String!
+  amountA: BigInt!
+  amountB: BigInt!
+  lpTokensMinted: BigInt!
+}
+
+type Pair_LiquidityRemoved {
+  id: ID!
+  by: String!
+  receiver: String!
+  amountA: BigInt!
+  amountB: BigInt!
+  lpTokensBurned: BigInt!
+}
+
+type Pair_PoolLocked {
+  id: ID!
+}
+
+type Pair_PoolUnlocked {
+  id: ID!
+}
+
+type Pair_ReservesUpdated {
+  id: ID!
+  reserveA: BigInt!
+  reserveB: BigInt!
+}
+
+type Pair_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  amount: BigInt!
+}
+
+
+#Monad Raffle
+type MonadRaffle_Approval {
+  id: ID!
+  owner: String!
+  approved: String!
+  tokenId: BigInt!
+}
+
+type MonadRaffle_ApprovalForAll {
+  id: ID!
+  owner: String!
+  operator: String!
+  approved: Boolean!
+}
+
+type MonadRaffle_EnteredRaffle {
+  id: ID!
+  receiver: String!
+  tokenIn: String!
+  amount: BigInt!
+  nftTokenId: BigInt!
+  distance: BigInt!
+}
+
+type MonadRaffle_EpochEnded {
+  id: ID!
+  epoch: BigInt!
+  randomNumber: String!
+}
+
+type MonadRaffle_MinimumNftsToBeMintedEachEpochSet {
+  id: ID!
+  minimumNftsToBeMintedEachEpoch: BigInt!
+}
+
+type MonadRaffle_MonadexV1RouterSet {
+  id: ID!
+  monadexV1Router: String!
+}
+
+type MonadRaffle_OwnershipTransferred {
+  id: ID!
+  previousOwner: String!
+  newOwner: String!
+}
+
+type MonadRaffle_TierWinningsClaimed {
+  id: ID!
+  claim_0: BigInt!
+  claim_1: BigInt!
+  claim_2: BigInt!
+}
+
+type MonadRaffle_TokenRemoved {
+  id: ID!
+  token: String!
+}
+
+type MonadRaffle_TokenSupported {
+  id: ID!
+  _token: String!
+  priceFeedConfig_0: String!
+  priceFeedConfig_1: BigInt!
+}
+
+type MonadRaffle_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  tokenId: BigInt!
+}
+

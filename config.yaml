@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: monadex
+networks:
+- id: 10143
+  start_block: 0
+  contracts:
+  - name: MonadexFactory
+    address:
+    - 0xd829C1d3649dBc3fd96d3d22500eF33A46daae46
+    handler: src/EventHandlers.ts
+    events:
+    - event: PoolCreated(address indexed pool, address indexed tokenA, address indexed tokenB)
+  - name: Pair
+    handler: src/EventHandlers.ts
+    events:
+    - event: Approval(address indexed owner, address indexed spender, uint256 amount)
+    - event: Initialised(address indexed tokenA, address indexed tokenB)
+    - event: LiquidityAdded(address indexed by, address indexed receiver, uint256 amountA, uint256 amountB, uint256 indexed lpTokensMinted)
+    - event: LiquidityRemoved(address indexed by, address indexed receiver, uint256 amountA, uint256 amountB, uint256 indexed lpTokensBurned)
+    - event: ReservesUpdated(uint256 indexed reserveA, uint256 indexed reserveB)
+    - event: Transfer(address indexed from, address indexed to, uint256 amount)
+  - name: MonadRaffle
+    address:
+    - 0x8e9Ee594125019cb0a658df98809F8AB8aD41F45
+    handler: src/EventHandlers.ts
+    events:
+    - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+    - event: EnteredRaffle(address indexed receiver, address indexed tokenIn, uint256 amount, uint256 indexed nftTokenId, uint256 distance)
+    - event: EpochEnded(uint256 indexed epoch, bytes32 indexed randomNumber)
+    - event: MinimumNftsToBeMintedEachEpochSet(uint256 indexed minimumNftsToBeMintedEachEpoch)
+    - event: MonadexV1RouterSet(address indexed monadexV1Router)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: TierWinningsClaimed((uint8,uint256,uint256) indexed claim)
+    - event: TokenRemoved(address indexed token)
+    - event: TokenSupported(address indexed _token, (bytes32,uint256) indexed priceFeedConfig)
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+
